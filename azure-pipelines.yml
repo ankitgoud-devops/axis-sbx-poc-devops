@@ -22,7 +22,7 @@ stages:
         backendServiceArm: 'axis-terraform-connection'
         backendAzureRmResourceGroupName: 'axis-sbx-poc-rg'
         backendAzureRmStorageAccountName: 'axissbxpocst01'
-        backendAzureRmContainerName: 'axispoctfstate'
+        backendAzureRmContainerName: 'axixpoctfstate'
         backendAzureRmKey: 'poc.tfstate'
 
 
@@ -42,7 +42,7 @@ stages:
         backendServiceArm: 'axis-terraform-connection'
         backendAzureRmResourceGroupName: 'axis-sbx-poc-rg'
         backendAzureRmStorageAccountName: 'axissbxpocst01'
-        backendAzureRmContainerName: 'axispoctfstate'
+        backendAzureRmContainerName: 'axixpoctfstate'
         backendAzureRmKey: 'poc.tfstate'
 
     - task: TerraformTask@5
@@ -68,7 +68,7 @@ stages:
         backendServiceArm: 'axis-terraform-connection'
         backendAzureRmResourceGroupName: 'axis-sbx-poc-rg'
         backendAzureRmStorageAccountName: 'axissbxpocst01'
-        backendAzureRmContainerName: 'axispoctfstate'
+        backendAzureRmContainerName: 'axixpoctfstate'
         backendAzureRmKey: 'poc.tfstate'
 
     - task: TerraformTask@5
