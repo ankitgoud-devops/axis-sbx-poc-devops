@@ -70,5 +70,33 @@ stages:
             command: 'plan'
             environmentServiceNameAzureRM: 'axis-terraform-connection'
 
+  - stage: terraform_apply
+    displayName: apply stage hai pahale
+    jobs:
+      - job: terraform_apply
+        displayName: is job mai plan chal raha
+        steps:
+        - task: TerraformTask@5
+          inputs:
+            provider: 'azurerm'
+            command: 'init'
+            backendServiceArm: 'axis-terraform-connection'
+            backendAzureRmResourceGroupName: 'AXIS-SBX-POC-RG'
+            backendAzureRmStorageAccountName: 'axissbxpocst01'
+            backendAzureRmContainerName: 'axixpoctfstate'
+            backendAzureRmKey: 'poc.tfstate'
+
+        - task: TerraformTask@5
+          inputs:
+            provider: 'azurerm'
+            command: 'validate'
+            environmentServiceNameAzureRM: 'axis-terraform-connection'
+
+        - task: TerraformTask@5
+          inputs:
+            provider: 'azurerm'
+            command: 'apply'
+            environmentServiceNameAzureRM: 'axis-terraform-connection'
+
 
 
