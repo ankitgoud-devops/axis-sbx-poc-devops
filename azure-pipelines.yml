@@ -21,7 +21,7 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)'
         backendServiceArm: 'axis-terraform-connection'
         backendAzureRmResourceGroupName: 'axis-sbx-poc-rg'
-        backendAzureRmStorageAccountName: 'axis sbxpocst01'
+        backendAzureRmStorageAccountName: 'axissbxpocst01'
         backendAzureRmContainerName: 'axispoctfstate'
         backendAzureRmKey: 'poc.tfstate'
 
@@ -41,7 +41,7 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)'
         backendServiceArm: 'axis-terraform-connection'
         backendAzureRmResourceGroupName: 'axis-sbx-poc-rg'
-        backendAzureRmStorageAccountName: 'axis sbxpocst01'
+        backendAzureRmStorageAccountName: 'axissbxpocst01'
         backendAzureRmContainerName: 'axispoctfstate'
         backendAzureRmKey: 'poc.tfstate'
 
@@ -67,7 +67,7 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)'
         backendServiceArm: 'axis-terraform-connection'
         backendAzureRmResourceGroupName: 'axis-sbx-poc-rg'
-        backendAzureRmStorageAccountName: 'axis sbxpocst01'
+        backendAzureRmStorageAccountName: 'axissbxpocst01'
         backendAzureRmContainerName: 'axispoctfstate'
         backendAzureRmKey: 'poc.tfstate'
 
