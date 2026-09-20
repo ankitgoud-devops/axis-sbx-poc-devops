@@ -1,5 +1,6 @@
 pool: AXIS-SBX-POOL
 
+
 stages:
   - stage: terraform_init
     displayName: init stage hai pahale
@@ -7,7 +8,6 @@ stages:
       - job: terraform_init
         displayName: is job mai init chal raha
         steps:
-          - 
         - task: TerraformTask@5
           inputs:
             provider: 'azurerm'
@@ -18,14 +18,13 @@ stages:
             backendAzureRmContainerName: 'axixpoctfstate'
             backendAzureRmKey: 'poc.tfstate'
 
-stages:
+
   - stage: terraform_validate
     displayName: validate stage hai pahale
     jobs:
       - job: terraform_validate
         displayName: is job mai validate chal raha
         steps:
-          - 
         - task: TerraformTask@5
           inputs:
             provider: 'azurerm'
@@ -36,20 +35,19 @@ stages:
             backendAzureRmContainerName: 'axixpoctfstate'
             backendAzureRmKey: 'poc.tfstate'
 
-          - task: TerraformTask@5
-            inputs:
-              provider: 'azurerm'
-              command: 'validate'
-              environmentServiceNameAzureRM: 'axis-terraform-connection'
+        - task: TerraformTask@5
+          inputs:
+            provider: 'azurerm'
+            command: 'validate'
+            environmentServiceNameAzureRM: 'axis-terraform-connection'
 
-stages:
+
   - stage: terraform_plan
     displayName: plan stage hai pahale
     jobs:
       - job: terraform_validate
         displayName: is job mai plan chal raha
         steps:
-          - 
         - task: TerraformTask@5
           inputs:
             provider: 'azurerm'
@@ -60,14 +58,17 @@ stages:
             backendAzureRmContainerName: 'axixpoctfstate'
             backendAzureRmKey: 'poc.tfstate'
 
-          - task: TerraformTask@5
-            inputs:
-              provider: 'azurerm'
-              command: 'validate'
-              environmentServiceNameAzureRM: 'axis-terraform-connection'
+        - task: TerraformTask@5
+          inputs:
+            provider: 'azurerm'
+            command: 'validate'
+            environmentServiceNameAzureRM: 'axis-terraform-connection'
 
-          - task: TerraformTask@5
-            inputs:
-              provider: 'azurerm'
-              command: 'plan'
-              environmentServiceNameAzureRM: 'axis-terraform-connection'
+        - task: TerraformTask@5
+          inputs:
+            provider: 'azurerm'
+            command: 'plan'
+            environmentServiceNameAzureRM: 'axis-terraform-connection'
+
+
+
