@@ -1,0 +1,76 @@
+pool: AXIS-SBX-AGENT-01
+
+stages:
+
+- stage:
+  displayName: tera_init
+
+  jobs:
+  - job: terraforminit
+    displayName: tera_init
+
+    steps:
+    - task: TerraformInstaller@1
+      inputs:
+        terraformVersion: 'latest'
+
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/axis-sbx-poc-devops'
+        backendServiceArm: 'axis-terraform-connection'
+        backendAzureRmResourceGroupName: 'axis-sbx-poc-rg'
+        backendAzureRmStorageAccountName: 'axis sbxpocst01'
+        backendAzureRmContainerName: 'axispoctfstate'
+
+
+- stage:
+  displayName: tera_validate
+
+  jobs:
+  - job: terraformvalidate
+    displayName: tera_validate
+
+    steps:
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/axis-sbx-poc-devops'
+        backendServiceArm: 'axis-terraform-connection'
+        backendAzureRmResourceGroupName: 'axis-sbx-poc-rg'
+        backendAzureRmStorageAccountName: 'axis sbxpocst01'
+        backendAzureRmContainerName: 'axispoctfstate'
+
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'validate'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/axis-sbx-poc-devops'
+
+
+- stage:
+  displayName: tera_plan
+
+  jobs:
+  - job: terraformplan
+    displayName: tera_plan
+
+    steps:
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/axis-sbx-poc-devops'
+        backendServiceArm: 'axis-terraform-connection'
+        backendAzureRmResourceGroupName: 'axis-sbx-poc-rg'
+        backendAzureRmStorageAccountName: 'axis sbxpocst01'
+        backendAzureRmContainerName: 'axispoctfstate'
+
+    - task: TerraformTask@5
+      inputs:
+        provider: 'azurerm'
+        command: 'plan'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/axis-sbx-poc-devops'
+        environmentServiceNameAzureRM: 'axis-terraform-connection'
