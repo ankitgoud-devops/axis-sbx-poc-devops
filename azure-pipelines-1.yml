@@ -1,3 +1,7 @@
+trigger:
+- main
+- feature/*
+
 pool: AXIS-SBX-POOL
 
 
