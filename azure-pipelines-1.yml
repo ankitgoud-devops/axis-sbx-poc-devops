@@ -97,6 +97,10 @@ stages:
             provider: 'azurerm'
             command: 'apply'
             environmentServiceNameAzureRM: 'axis-terraform-connection'
-
+        - task: TerraformTask@5
+          inputs:
+            provider: 'azurerm'
+            command: 'output'
+            environmentServiceNameAzureRM: 'axis-terraform-connection'
 
 
