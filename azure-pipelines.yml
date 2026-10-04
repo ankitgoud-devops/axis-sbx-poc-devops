@@ -1,0 +1,11 @@
+pool: AI_AGENT
+
+pool:
+  name: AI_AGENT
+  demands: 
+  - Agent.Name AI_AGENT-2
+
+
+trigger: 
+- main
+- feature/*
