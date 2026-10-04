@@ -1,8 +1,8 @@
 terraform {
   backend "azurerm" {
-    resource_group_name  = "AXIS-SBX-POC-RG"
-    storage_account_name = "axissbxpocst01"
-    container_name       = "axixpoctfstate"
+    resource_group_name  = "backend_RG"
+    storage_account_name = "backstorage1"
+    container_name       = "bluedrum"
     key                  = "poc.tfstate"
   }
 
